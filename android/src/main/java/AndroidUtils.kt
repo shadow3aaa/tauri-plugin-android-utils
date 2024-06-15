@@ -2,6 +2,7 @@ package com.plugin.androidUtils
 
 import android.app.Activity
 import android.widget.Toast
+import app.tauri.plugin.JSObject
 import app.tauri.annotation.Command
 import app.tauri.annotation.InvokeArg
 import app.tauri.annotation.TauriPlugin
@@ -25,5 +26,29 @@ class AndroidUtils(private val activity: Activity): Plugin(activity) {
       } else {
         Toast.makeText(activity, args.message!!, Toast.LENGTH_SHORT).show()
       }
+    }
+    
+    @Command
+    fun getPrivateDirectory(invoke: Invoke) {
+        val privateDir = activity.filesDir.absolutePath
+        val ret = JSObject();
+        ret.put("path", privateDir)
+        invoke.resolve(ret)
+    }
+
+    @Command
+    fun getCacheDirectory(invoke: Invoke) {
+        val cacheDir = activity.cacheDir.absolutePath
+        val ret = JSObject();
+        ret.put("path", cacheDir)
+        invoke.resolve(ret)
+    }
+
+    @Command
+    fun getNativeLibraryDirectory(invoke: Invoke) {
+        val nativeLibraryDir = activity.applicationInfo.nativeLibraryDir
+        val ret = JSObject();
+        ret.put("path", nativeLibraryDir)
+        invoke.resolve(ret)
     }
 }

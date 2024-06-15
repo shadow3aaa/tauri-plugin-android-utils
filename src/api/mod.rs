@@ -47,7 +47,7 @@ impl<R: Runtime> AndroidUtils<R> {
         }
 
         #[cfg(not(target_os = "android"))]
-        None;
+        None
     }
 
     pub fn cache_directory(&self) -> Option<PathBuf> {
@@ -61,7 +61,7 @@ impl<R: Runtime> AndroidUtils<R> {
         }
 
         #[cfg(not(target_os = "android"))]
-        None;
+        None
     }
 
     pub fn native_lib_directory(&self) -> Option<PathBuf> {
@@ -75,6 +75,6 @@ impl<R: Runtime> AndroidUtils<R> {
         }
 
         #[cfg(not(target_os = "android"))]
-        None;
+        None
     }
 }

@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-makeToast"
+description = "Enables the makeToast command without any pre-configured scope."
+commands.allow = ["makeToast"]
+
+[[permission]]
+identifier = "deny-makeToast"
+description = "Denies the makeToast command without any pre-configured scope."
+commands.deny = ["makeToast"]

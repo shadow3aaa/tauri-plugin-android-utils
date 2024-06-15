@@ -10,8 +10,8 @@ import app.tauri.plugin.Invoke
 
 @InvokeArg
 class ToastArg {
-  var message: String = null,
-  var long: Boolean = null,
+  var message: String? = null,
+  var long: Boolean? = null,
 }
 
 @TauriPlugin
@@ -21,9 +21,9 @@ class AndroidUtils(private val activity: Activity): Plugin(activity) {
       val args = invoke.parseArgs(ToastArg::class.java)
 
       if (args.long) {
-        Toast.makeText(activity, args.message, Toast.LENGTH_LONG)
+        Toast.makeText(activity, args.message!!, Toast.LENGTH_LONG!!)
       } else {
-        Toast.makeText(activity, args.message, Toast.LENGTH_SHORT)
+        Toast.makeText(activity, args.message!!, Toast.LENGTH_SHORT!!)
       }
     }
 }

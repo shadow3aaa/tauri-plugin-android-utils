@@ -14,7 +14,7 @@ pub trait AndroidUtilsExt<R: Runtime> {
     fn android_utils(&self) -> &AndroidUtils<R>;
 }
 
-impl<R: Runtime, T: Manager<R>> crate::AndroidUtilsExt<R> for T {
+impl<R: Runtime, T: Manager<R>> AndroidUtilsExt<R> for T {
     fn android_utils(&self) -> &AndroidUtils<R> {
         self.state::<AndroidUtils<R>>().inner()
     }

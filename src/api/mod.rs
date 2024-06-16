@@ -43,7 +43,7 @@ impl<R: Runtime> AndroidUtils<R> {
                 .0
                 .run_mobile_plugin::<AndroidPath>("getPrivateDirectory", ())
                 .ok()
-                .map(|path| Path::new(&path.value).to_path_buf());
+                .map(|path| Path::new(&path.path).to_path_buf());
         }
 
         #[cfg(not(target_os = "android"))]
@@ -57,7 +57,7 @@ impl<R: Runtime> AndroidUtils<R> {
                 .0
                 .run_mobile_plugin::<AndroidPath>("getCacheDirectory", ())
                 .ok()
-                .map(|path| Path::new(&path.value).to_path_buf());
+                .map(|path| Path::new(&path.path).to_path_buf());
         }
 
         #[cfg(not(target_os = "android"))]
@@ -71,7 +71,7 @@ impl<R: Runtime> AndroidUtils<R> {
                 .0
                 .run_mobile_plugin::<AndroidPath>("getNativeLibraryDirectory", ())
                 .ok()
-                .map(|path| Path::new(&path.value).to_path_buf());
+                .map(|path| Path::new(&path.path).to_path_buf());
         }
 
         #[cfg(not(target_os = "android"))]
